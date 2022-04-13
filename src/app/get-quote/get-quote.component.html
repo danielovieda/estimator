@@ -1,1 +1,110 @@
-<p>get-quote works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h2>Get your free quote!</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <p>Fill out the form below and get an instant price quote for <u>Free</u>!</p>
+        </div>
+    </div>
+
+
+</div>
+
+
+<form [formGroup]="quoteForm">
+    <div class="container-sm mt-3">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Personal Information</h3>
+            </div>
+        </div>
+
+        <div formGroupName="contact">
+            <div class="row">
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="First Name" formControlName="firstName">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="Last Name" formControlName="lastName">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="Address" formControlName="address">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="City" formControlName="city">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="State" formControlName="state">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="Zip" formControlName="zip">
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <h3>Fence Information</h3>
+            </div>
+        </div>
+        <div formGroupName="fence">
+            <div class="row">
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="Length" formControlName="length">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="Height" formControlName="height">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="Type" formControlName="type">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm">
+                    <mat-form-field class="form-control">
+                        <input matInput placeholder="Gate" formControlName="gate">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm text-center">
+                <div class="btn btn-lg btn-primary shadow">Get My Free Quote!</div>
+            </div>
+        </div>
+    </div>
+</form>
