@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { QuotesService } from '../quotes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-quote',
@@ -11,7 +13,7 @@ export class GetQuoteComponent implements OnInit {
   quoteForm: any
   
 
-  constructor() { }
+  constructor(private service: QuotesService, private router: Router) { }
 
   ngOnInit(): void {
     
@@ -47,7 +49,8 @@ export class GetQuoteComponent implements OnInit {
     this.validateForm(this.quoteForm.get('fence'))
 
     if (this.quoteForm.valid) {
-      
+      this.service.setQuote(this.quoteForm.value)
+      this.router.navigate(['/show-quote'])
     }
   }
 

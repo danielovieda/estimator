@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { GetQuoteComponent } from './get-quote/get-quote.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShowQuoteComponent } from './show-quote/show-quote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetQuoteComponent,
-    HomepageComponent
+    HomepageComponent,
+    ShowQuoteComponent
   ],
   imports: [
     BrowserModule,

@@ -125,11 +125,11 @@
             <div class="row">
                 <div class="col-sm">
                     
-                        <input class="form-control" placeholder="Length" formControlName="length">
+                        <input class="form-control" placeholder="Total Length" formControlName="length">
 
                         <div class="alert alert-danger p-1 border-start border-3 border-top-0 border-end-0 border-bottom-0 border-danger" role="alert"
                         *ngIf="length.touched && !length.valid">
-                            <small class="ms-2" *ngIf="!length.valid">This field is required.</small>
+                            <small class="ms-2" *ngIf="!length.valid">Total parameter length of the fence.</small>
                             <small class="ms-2" *ngIf="length.errors?.['pattern']">Numbers only represented in feet.</small>
                           </div>
                     
@@ -137,14 +137,14 @@
                 <div class="col-sm">
                     
                         <select class="form-control" formControlName="height">
-                            <option value="" seleced>Height</option>
+                            <option value="" seleced>Height of Your Fence</option>
                             <option value="6">6 Foot</option>
                             <option value="8">8 Foot</option>
                         </select>
 
                         <div class="alert alert-danger p-1 border-start border-3 border-top-0 border-end-0 border-bottom-0 border-danger" role="alert"
                         *ngIf="height.touched && !height.valid">
-                            <small class="ms-2" *ngIf="!height.valid">This field is required.</small>
+                            <small class="ms-2" *ngIf="!height.valid">Please select the height of your fence.</small>
                             
                           </div>
                     
@@ -154,12 +154,35 @@
             <div class="row">
                 <div class="col-sm">
                     
-                        <input class="form-control" placeholder="Type" formControlName="type">
+                        <select class="form-control" placeholder="Type" formControlName="type">
+                            <option value="" selected>Wood Preference</option>
+                            <option value="1">Redwood</option>
+                            <option value="2">Plywood</option>
+                            <option value="3">Cedar</option>
+                            <option value="4">Beachwood</option>
+                        </select>
+                        <div class="alert alert-danger p-1 border-start border-3 border-top-0 border-end-0 border-bottom-0 border-danger" role="alert"
+                        *ngIf="type.touched && !type.valid">
+                            <small class="ms-2" *ngIf="!type.valid">This field is required.</small>
+                            
+                          </div>
                     
                 </div>
                 <div class="col-sm">
                     
-                        <input class="form-control" placeholder="Gate" formControlName="gate">
+                        <select class="form-control" placeholder="Gate" formControlName="gate">
+                            <option value="">Quantity of gates</option>
+                            <option value="0">No gates</option>
+                            <option value="1">1 gates</option>
+                            <option value="2">2 gates</option>
+                            <option value="3">3 gates</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                        <div class="alert alert-danger p-1 border-start border-3 border-top-0 border-end-0 border-bottom-0 border-danger" role="alert"
+                        *ngIf="gate.touched && !gate.valid">
+                            <small class="ms-2" *ngIf="!gate.valid">This field is required.</small>
+                            
+                          </div>
                     
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { GetQuoteComponent } from './get-quote/get-quote.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ShowQuoteComponent } from './show-quote/show-quote.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'get-quote',
     component: GetQuoteComponent
+  },
+  {
+    path: 'show-quote',
+    component: ShowQuoteComponent
   }
 ];
 
