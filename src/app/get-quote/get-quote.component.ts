@@ -36,6 +36,13 @@ export class GetQuoteComponent implements OnInit {
       })
     })
 
+    if (this.service.getQuote()) {
+      let quote = this.service.getQuote()
+      delete quote.cost
+      this.quoteForm.setValue(quote)
+      
+    }
+
   }
 
   validateForm(form: FormGroup) {
