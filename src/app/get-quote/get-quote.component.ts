@@ -45,6 +45,10 @@ export class GetQuoteComponent implements OnInit {
 
   }
 
+  reset() {
+    this.quoteForm.reset()
+  }
+
   validateForm(form: FormGroup) {
     for (let i in form.controls) {
       form.controls[i].markAsTouched()
