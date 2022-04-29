@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class QuotesService {
   quote: any
   cost: any
+  savedQuotes: any
+  
 
   constructor() { }
 
@@ -17,39 +19,52 @@ export class QuotesService {
     return this.quote
   }
 
+  getQuoteNumber() {
+    return Math.floor(Math.random() * 9999)
+  }
+
   calculateQuote() {
-    let costPerFoot = 46
-    let costPerGate = 350
+    const costPerFoot = 46
+    const costPerGate = 350
+    const sixFootMultiplier = 1
+    const eightFootMultiplier = 1.2
+    const taxes = 0.075
+
     let length = this.quote.fence.length
     let height = this.quote.fence.height
-    let type = this.quote.fence.type
+    
     let gates = this.quote.fence.gate
 
     let subtotal = length * costPerFoot
+
     console.log('subtotal:',subtotal)
-    height === 6 ? subtotal = subtotal * 1.2 : subtotal = subtotal * 1.3
+    height === 6 ? subtotal = subtotal * sixFootMultiplier : subtotal = subtotal * eightFootMultiplier
     console.log('subtotal:',subtotal)
 
     let costOfGates = costPerGate * gates
 
-    switch(type) {
-      case "1":
-        subtotal = subtotal * 1.05
-        break
-      case "2":
-        subtotal = subtotal * 1.07
-        break
-      case "3":
-        subtotal = subtotal * 1.1
-        break
-      case "4":
-        subtotal = subtotal * 1.12
-        break
-      default:
-        break
-    }
+    subtotal = subtotal + costOfGates    
 
     console.log('subtotal:',subtotal)
+
+    let grandTotal = subtotal + (subtotal * taxes)
+
+    console.log('grand total:', grandTotal)
+
+    let taxTotal = subtotal * taxes
+
+    this.quote.cost = {
+      costPerFoot: costPerFoot,
+      costPerGate: costPerGate,
+      subtotal: subtotal,
+      taxes: (subtotal * taxes),
+      taxRate: taxes,
+      grandTotal: grandTotal
+    }
+
+    return grandTotal
+
+
 
 
 

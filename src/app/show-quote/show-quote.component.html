@@ -1,12 +1,121 @@
-<div class="container-fluid">
+<div class="container-sm">
     <div class="row">
         <div class="col-sm">
-            {{ quote | json }}
+            <h1>Best Fence Co.</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-sm">
-            <div class="btn btn-primary" (click)="calc()">Calc</div>
+            <h4>Quote #{{quoteNumber()}}</h4>
+        </div>
+        <div class="col-sm">
+            <h4>{{today()}}</h4>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <h6><b>Estimate for:</b></h6>
+            <p class="m-0">{{firstName}} {{lastName}}</p>
+            <p class="m-0">{{address}}</p>
+            <p class="m-0">{{city}}, {{state}} {{zip}}</p>
+            <p class="m-0">{{email}}</p>
+        </div>
+        <div class="col-sm">
+            <h6><b>Prepared by:</b></h6>
+            <p class="m-0">Ronald McDonald</p>
+            <p class="m-0">123 Fake St.</p>
+            <p class="m-0">Some City, CA 12345-0000</p>
+            <p class="m-0">contact@bestfence.co</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <p><b>Description:</b> Installation of a {{type}} fence approximately {{length}} feet in total at a height
+                of {{height}} feet.
+                <span *ngIf="gates !== '0'">Additionally, {{gates}} gate(s) will be installed.</span>
+
+            </p>
+            <p><em>This quote is not finalized until accepted by the customer.</em></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{length}}</th>
+                        <td>{{type}} {{height}}' Fence</td>
+                        <td>{{costPerFoot | currency}}</td>
+                        <td>{{costPerFoot * length | currency}}</td>
+                    </tr>
+                    <tr *ngIf="gates !== '0'">
+                        <th scope="row">{{gates}}</th>
+                        <td>Standard {{type}} {{height}}' Gate</td>
+                        <td>{{costPerGate | currency}}</td>
+                        <td>{{gates * costPerGate | currency}}</td>
+                    </tr>
+                    <tr class="table-light">
+                        <th scope="row"></th>
+                        <td></td>
+                        <td>Subtotal</td>
+                        <td>{{subtotal | currency}}</td>
+                    </tr>
+                    <tr class="table-light">
+                        <th scope="row"></th>
+                        <td></td>
+                        <td>Taxes ({{taxRate*100}}%)</td>
+                        <td>{{taxes | currency}}</td>
+                    </tr>
+                    <tr class="table-light">
+                        <th scope="row"></th>
+                        <td></td>
+                        <td><b>Total</b></td>
+                        <td><b>{{grandTotal | currency}}</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-sm">
+            <p><em>This quote is valid for 14 business days.</em></p>
+        </div>
+    </div>
+
 </div>
